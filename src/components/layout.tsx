@@ -19,16 +19,16 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className={`min-h-screen ${isDarkMode ? 'dark' : ''}`}>
-      <div className="bg-[#f5f2eb] dark:bg-zinc-900 min-h-screen text-zinc-900 dark:text-[#f5f2eb] transition-colors duration-300">
-        <header className="fixed top-0 left-0 right-0 z-50 bg-[#f5f2eb]/80 dark:bg-zinc-900/80 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800">
-          <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+      <div className="min-h-screen transition-colors duration-300 bg-Alabastar dark:bg-black text-black dark:text-Alabastar">
+        <header className="fixed top-0 left-0 right-0 z-50 bg-Alabastar/80 dark:bg-black/80 backdrop-blur-md border-b border-Alabastar dark:border-black">
+          <div className="container mx-auto flex justify-between items-center px-6 py-4">
             <Navigation />
-            <Link href="/" className="absolute left-1/2 -translate-x-1/2 text-2xl font-serif">474</Link>
-            <div className="flex items-center space-x-6">
-              <button onClick={() => setIsSearchOpen(true)}>
+            <Link href="/" className="text-2xl font-serif mx-auto">474</Link>
+            <div className="flex space-x-6">
+              <button onClick={() => setIsSearchOpen(true)} aria-label="Open search">
                 <Search className="w-5 h-5" />
               </button>
-              <button onClick={() => setIsDarkMode(!isDarkMode)}>
+              <button onClick={() => setIsDarkMode(prev => !prev)} aria-label="Toggle dark mode">
                 {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
               </button>
             </div>
@@ -41,7 +41,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="fixed inset-x-0 top-0 z-50 bg-[#f5f2eb] dark:bg-zinc-900 shadow-lg"
+              className="fixed inset-x-0 top-0 z-50 bg-Alabastar dark:bg-black shadow-lg"
             >
               <div className="container mx-auto px-6 py-4">
                 <div className="flex items-center">
@@ -79,4 +79,3 @@ export function Layout({ children }: { children: React.ReactNode }) {
     </div>
   )
 }
-
